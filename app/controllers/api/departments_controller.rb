@@ -9,12 +9,11 @@ class Api::DepartmentsController < ApplicationController
   end
 
   def create
-    department = Department.new(deparment_params)
-    
+    department = Department.new(department_params)
     if department.save
       render json: department
     else
-      render json: department.errors, status: 422
+      render json: department.errors
     end
   end
 
@@ -22,7 +21,7 @@ class Api::DepartmentsController < ApplicationController
     if @department.update(deparment_params)
       render json: @department
     else
-      render json: @department.errors, status: 422
+      render json: @department.errors
     end
   end
 
@@ -36,6 +35,6 @@ class Api::DepartmentsController < ApplicationController
     end
 
     def department_params
-      params.require(:department).permit(:name)
+      params.require(:department).permit(:name, :description)
     end
   end

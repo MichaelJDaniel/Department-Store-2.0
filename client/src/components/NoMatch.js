@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
-const NoMethod = () => (
-  <h1>404</h1>
-)
+const NoMatch = () => (
+  <div>
+    <h1>404 Page</h1>
+  </div>
+);
 
-export default NoMethod
+export default NoMatch;

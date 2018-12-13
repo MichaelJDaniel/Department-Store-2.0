@@ -3,7 +3,7 @@ class Api::ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
 
   def index
-    render json: @department.products.all
+    render json: @department.products
   end
 
   def show
@@ -15,7 +15,7 @@ class Api::ProductsController < ApplicationController
     if product.save
       render json: product
     else
-      render json: product.errors, status: 422
+      render json: product.errors
     end
   end
 
@@ -23,7 +23,7 @@ class Api::ProductsController < ApplicationController
     if @product.update(product_params)
       render json: product
     else
-      render json: product.errors, status: 422
+      render json: product.errors
     end
   end
 
@@ -33,7 +33,7 @@ class Api::ProductsController < ApplicationController
 
   private
   def set_product
-    @product = Product.find(params[:id])
+    @product = @Deparment.products.find(params[:id])
   end
 
   def set_department
