@@ -23,8 +23,8 @@ class Department extends React.Component {
   }
 
   renderProducts = () => {
-    return this.state.products.map( i => (
-      <ProductCard key={i.id} { ...i } remove={this.removeProduct} />
+    return this.state.products.map( p => (
+      <ProductCard key={p.id} { ...p } remove={this.removeProduct} />
     ))
   }
 

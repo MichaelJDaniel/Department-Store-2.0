@@ -3,7 +3,7 @@ import axios from "axios";
 import { Card, Grid, } from "semantic-ui-react";
 
 class Product extends React.Component {
-  state = { product: {}, reviews: [], };
+  state = { product: {}, };
 
   componentDidMount() {
     // axios.get(`/api/departments/${this.props.match.params.id}/items/${this.props.match.params.itemId}`)

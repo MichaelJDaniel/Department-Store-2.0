@@ -14,34 +14,20 @@ class ProductForm extends React.Component {
 
   handleChange = (e) => {
     const { name, value, } = e.target;
-    // [name] is allowing name to be used as a object key instead of a string
     this.setState({ [name]: value, });
-    // looooooooong way to do this code
-    // switch(name) {
-    //   case "name":
-    //     this.setState({ name: value, });
-    //   case "description":
-    //     this.setState({ description: value, });
-    //   case "price":
-    //     this.setState({ price: value, });
-    //   case "image_url":
-    //     this.setState({ image_url: value, });
-    // }
+    
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // const { id, itemId, } = this.props.match.params;
-    // const { push } = this.props.history;
-    // This is the two lines of code above but combined into one
     const { match: { params: {id, productId} }, history: { push, } } = this.props;
 
     if (productId) {
       axios.put(`/api/departments/${id}/products/${productId}`, {...this.state})
-        .then( res => push(`/departments/${id}`))
+        .then( res => console.log(res))
     } else {
       axios.post(`/api/departments/${id}/products`, { ...this.state })
-        .then( res => push(`/departments/${id}`))
+        .then( res => console.log(res))
     }
   }
 
